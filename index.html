@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetFort Technologies — Platform Keamanan Zero Trust & IoT Otonom</title>
+  <meta name="description" content="Platform Zero Trust bertenaga AI yang memprediksi, memetakan, dan mengisolasi ancaman lateral pada ekosistem IoT secara otonom dalam hitungan milidetik.">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="cyber.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar Presisi Tetap (100% Konsisten di Seluruh Halaman) -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>NetFort <span class="highlight-sky">Technologies</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="features.html">Fitur & Teknologi</a></li>
+        <li><a href="pricing.html">Paket & Harga</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Kontak & Demo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="portal.html" class="nav-signin-link">Masuk Portal</a>
+        <a href="pricing.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Mulai Uji Coba</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <!-- Hero Section -->
+    <section class="hero-box">
+      <div class="pill-badge">
+        <span>🛡️</span> Zero Trust Architecture untuk Infrastruktur Modern & IoT
+      </div>
+      <h1>
+        Never Trust, Always Verify.<br />
+        <span class="highlight-sky">Amankan Setiap Interaksi,</span> Bukan Hanya Pintu Depan.
+      </h1>
+      <p>
+        Firewall perimeter konvensional sudah mati saat peretas berhasil masuk lewat perangkat pintar yang tertinggal update. <strong>NetFort AI</strong> memprediksi, memetakan, dan mengisolasi pergerakan lateral ancaman pada jaringan IoT secara otonom dalam hitungan milidetik.
+      </p>
+      <div class="hero-actions">
+        <a href="pricing.html" class="btn btn-primary">Uji Coba 14 Hari Gratis</a>
+        <a href="#simulator" class="btn btn-sky">Jalankan Simulasi Otonom ↓</a>
+      </div>
+
+      <!-- KONSOL ARSITEKTUR KEAMANAN ZERO TRUST NETFORT (VISUAL BRAND IDENTITY) -->
+      <div class="hero-cyber-console">
+        <div class="console-topbar">
+          <div class="console-dots">
+            <span class="console-dot dot-red"></span>
+            <span class="console-dot dot-yellow"></span>
+            <span class="console-dot dot-green"></span>
+          </div>
+          <div style="font-weight:700; color:var(--text-main); letter-spacing:0.02em;">
+            NETFORT CYBER SHIELD v4.2 // eBPF ZERO TRUST MONITOR
+          </div>
+          <div style="display:flex; align-items:center; gap:0.5rem; color:#10b981; font-weight:700; font-size:0.78rem;">
+            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></span>
+            ENFORCEMENT: ACTIVE (0.04 ms)
+          </div>
+        </div>
+
+        <div class="console-body">
+          <!-- Sisi Kiri: Visualizer Topologi Segmen IoT & Database -->
+          <div class="topology-visualizer">
+            <div style="font-size:0.75rem; font-weight:800; font-family:var(--font-mono); color:var(--text-dim); text-transform:uppercase; margin-bottom:1rem; display:flex; justify-content:space-between;">
+              <span>TOPOLOGI MIKRO-SEGMEN TERPETA</span>
+              <span>3 ENDPOINT AKTIF</span>
+            </div>
+
+            <div class="topology-node" id="heroNodeSensor">
+              <div style="display:flex; align-items:center; gap:0.65rem;">
+                <span style="font-size:1.15rem;">🌡️</span>
+                <div>
+                  <div style="font-size:0.85rem; font-weight:700; color:var(--text-main);">Sensor Suhu Server R4</div>
+                  <div style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono);">Port 1883 (MQTT Telemetri)</div>
+                </div>
+              </div>
+              <span class="node-status-pill pill-ok" id="heroPillSensor">TERVERIFIKASI</span>
+            </div>
+
+            <div class="topology-node" id="heroNodeCctv">
+              <div style="display:flex; align-items:center; gap:0.65rem;">
+                <span style="font-size:1.15rem;">📹</span>
+                <div>
+                  <div style="font-size:0.85rem; font-weight:700; color:var(--text-main);">Kamera CCTV Lobby Utama</div>
+                  <div style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono);">Subnet 192.168.10.24 (RTSP)</div>
+                </div>
+              </div>
+              <span class="node-status-pill pill-isolated" id="heroPillCctv">MIKRO-TERISOLASI</span>
+            </div>
+
+            <div class="topology-node core-secure" id="heroNodeDb">
+              <div style="display:flex; align-items:center; gap:0.65rem;">
+                <span style="font-size:1.15rem;">🗄️</span>
+                <div>
+                  <div style="font-size:0.85rem; font-weight:700; color:var(--text-main);">Database Payroll & Data Inti</div>
+                  <div style="font-size:0.75rem; color:var(--sky-blue); font-family:var(--font-mono);">Port 5432 (Air-Gapped Shield)</div>
+                </div>
+              </div>
+              <span class="node-status-pill pill-shielded" id="heroPillDb">TERLINDUNGI AI</span>
+            </div>
+          </div>
+
+          <!-- Sisi Kanan: Live AI Behavioral Profiling Inspector -->
+          <div>
+            <div class="pill-badge pill-badge-pink" style="margin-bottom:0.75rem;">Inspeksi Perilaku Otonom Real-Time</div>
+            <h3 style="font-size:1.35rem; color:var(--text-main); line-height:1.3; margin-bottom:0.65rem;">
+              Cegah Pergerakan Lateral dalam &lt; 1.5 Milidetik
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.15rem;">
+              Jika peretas memanfaatkan zero-day pada sensor suhu atau kamera CCTV, algoritma AI NetFort memutus segmen perangkat tersebut sebelum mampu menyentuh server database.
+            </p>
+
+            <div style="background:var(--bg-canvas); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.9rem 1.15rem; margin-bottom:1.25rem; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); line-height:1.7;">
+              <div style="color:var(--sky-blue); font-weight:700;">[eBPF Kernel Feed Status]</div>
+              <div id="heroFeedLine1">• Baseline: Pola lalu lintas IoT normal (0 pergerakan lateral).</div>
+              <div id="heroFeedLine2">• Integritas Segmen: 100% Sesuai Postur Zero Trust.</div>
+            </div>
+
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" style="padding:0.6rem 1.25rem; font-size:0.85rem;" onclick="simulasikanSeranganHero()">
+                ⚡ Simulasikan Peretasan Lateral IoT
+              </button>
+              <button type="button" class="btn btn-outline" style="padding:0.6rem 1.15rem; font-size:0.85rem;" onclick="resetSimulasiHero()">
+                ↺ Pulihkan Status Baseline
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAR KEPATUHAN & INTEGRASI ENTERPRISE RESMI (BRAND REPUTATION) -->
+    <div class="trust-bar">
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        ISO/IEC 27001 Terakreditasi
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        SOC 2 Type II Audited
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+        NIST SP 800-207 Zero Trust
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span>
+        Linux eBPF Kernel Native
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+        Splunk & Sentinel Connector
+      </div>
+    </div>
+
+    <!-- Metrik Kunci Keandalan -->
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; background:var(--bg-surface); border:1px solid var(--border-card); border-radius:var(--radius-md); padding:2rem; margin:2.5rem 0 4rem; text-align:center; box-shadow:var(--shadow-card);">
+      <div>
+        <div style="font-size:2.2rem; font-weight:900; color:var(--sky-blue); font-family:var(--font-mono);">&lt; 48 Jam</div>
+        <div style="font-size:0.9rem; font-weight:700; color:var(--text-main); margin-top:0.35rem;">Implementasi Tanpa Rombak Topologi</div>
+        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:0.2rem;">Langsung aktif tanpa downtime operasional</div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem; font-weight:900; color:var(--hot-pink); font-family:var(--font-mono);">&lt; 1.5 ms</div>
+        <div style="font-size:0.9rem; font-weight:700; color:var(--text-main); margin-top:0.35rem;">Isolasi Mikro-Segmentasi Otonom</div>
+        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:0.2rem;">Memutus pergerakan lateral seketika</div>
+      </div>
+      <div>
+        <div style="font-size:2.2rem; font-weight:900; color:var(--text-main); font-family:var(--font-mono);">0% Latensi</div>
+        <div style="font-size:0.9rem; font-weight:700; color:var(--text-main); margin-top:0.35rem;">Tanpa Memperlambat Jaringan</div>
+        <div style="font-size:0.8rem; color:var(--text-dim); margin-top:0.2rem;">Pengguna sah tetap bekerja dengan kecepatan penuh</div>
+      </div>
+    </div>
+
+    <!-- Perbandingan Nyata: Firewall Tradisional vs NetFort Zero Trust -->
+    <div class="section-header" style="margin-bottom: 2.5rem;">
+      <div class="pill-badge pill-badge-pink">Evolusi Pertahanan Jaringan</div>
+      <h2>Mengapa Keamanan Perimeter Tradisional Sudah Mati?</h2>
+      <p>Perusahaan modern mengadopsi ribuan perangkat IoT (sensor, kamera, smart lock). Sekali pintu depan ditembus, firewall biasa membiarkan peretas bebas menjelajah seluruh server internal.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 4rem;">
+      <div style="background:var(--bg-surface); border:1px solid rgba(255,92,122,.4); border-radius:var(--radius-md); padding:2rem; box-shadow:var(--shadow-sm);">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; color:#ff5c7a; font-weight:800; font-size:1.15rem;">
+          <span>✕</span> Firewall Perimeter Konvensional
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.95rem; color:var(--text-muted);">
+          <li>• Mempercayai semua perangkat di dalam jaringan lokal (LAN) secara default.</li>
+          <li>• Jika 1 kamera IoT diretas, penyerang leluasa bergerak lateral menuju server database keuangan.</li>
+          <li>• Menghasilkan ribuan notifikasi peringatan palsu (memicu <em>alert fatigue</em> pada tim IT).</li>
+          <li>• Membutuhkan perombakan kabel dan konfigurasi switch manual selama berbulan-bulan.</li>
+        </ul>
+      </div>
+
+      <div style="background:var(--bg-surface); border:2px solid var(--sky-blue); border-radius:var(--radius-md); padding:2rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; color:var(--sky-blue); font-weight:800; font-size:1.15rem;">
+          <span>✓</span> Arsitektur Zero Trust NetFort
+        </div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.95rem; color:var(--text-main);">
+          <li>• <strong>Never Trust, Always Verify:</strong> Tiap paket data wajib lolos verifikasi berlapis, baik dari dalam maupun luar.</li>
+          <li>• <strong>IoT Micro-Segmentation:</strong> Setiap sensor terisolasi dalam sub-jaringan otonom tersendiri.</li>
+          <li>• <strong>AI-Driven Behavioral Profiling:</strong> Memutus komunikasi anomali dalam hitungan milidetik secara otonom.</li>
+          <li>• Terpetakan dan aktif penuh dalam <strong>kurang dari 48 jam</strong> tanpa mengubah topologi jaringan Anda.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Simulator Interaktif: Uji Kasus Sensor Suhu IoT yang Diretas -->
+    <section class="simulator-box" id="simulator">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <div>
+          <div class="pill-badge pill-badge-pink" style="margin-bottom:0.4rem;">LAB SIMULASI SERANGAN INTERAKTIF</div>
+          <h2 style="font-size:1.75rem; color:var(--text-main); margin-top:0.25rem;">Uji Respons Otonom NetFort AI</h2>
+          <p style="color:var(--text-muted); font-size:0.95rem;">Pilih skenario ancaman IoT di bawah ini dan saksikan bagaimana Machine Learning memutus segmen anomali secara otonom.</p>
+        </div>
+        <div class="sim-nav">
+          <button class="sim-tab-btn active" onclick="pilihSkenario(this, 'suhu')">1. Sensor Suhu Hack DB</button>
+          <button class="sim-tab-btn" onclick="pilihSkenario(this, 'cctv')">2. Kamera CCTV Scanning</button>
+          <button class="sim-tab-btn" onclick="pilihSkenario(this, 'auth')">3. Pembajakan Kredensial SSO</button>
+        </div>
+      </div>
+
+      <div class="sim-layout">
+        <div class="sim-status-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-family:var(--font-mono); color:var(--text-dim);">
+              <span>PERANGKAT TARGET:</span>
+              <span id="targetPerangkatLabel" style="font-weight:700; color:var(--sky-blue);">IOT-SENSOR-SUHU-R4</span>
+            </div>
+
+            <div style="margin:2rem 0; text-align:center;">
+              <div style="font-size:0.85rem; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:0.4rem;">Tingkat Keyakinan Anomali AI</div>
+              <div id="nilaiKeyakinanDisplay" style="font-size:3.2rem; font-weight:900; font-family:var(--font-mono); color:var(--text-main); line-height:1;">0%</div>
+              <div id="waktuIsolasiDisplay" style="font-size:0.85rem; color:var(--text-dim); font-family:var(--font-mono); margin-top:0.4rem;">Waktu Reaksi: 0.00 ms</div>
+            </div>
+          </div>
+
+          <div>
+            <div id="statusSimulasiNotice" style="background:var(--bg-subtle); border:1px solid var(--border-subtle); border-radius:var(--radius-sm); padding:0.85rem; text-align:center; font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; font-family:var(--font-mono);">
+              SIAP &bull; Klik tombol di bawah untuk meluncurkan serangan
+            </div>
+            <button id="btnEksekusiSim" class="btn btn-primary" style="width:100%; font-size:0.95rem;" onclick="jalankanSimulasiIoT()">
+              ⚡ Luncurkan Uji Serangan IoT Otonom
+            </button>
+          </div>
+        </div>
+
+        <div class="terminal-view" id="terminalSimulasi">
+          <div><span style="color:#8aa0bd;">[00:00:00]</span> NetFort Continuous Monitoring aktif pada subnet IoT.</div>
+          <div><span style="color:#8aa0bd;">[00:00:01]</span> Profil perilaku normal (baseline): Sensor Suhu hanya berkomunikasi dengan MQTT Broker (Port 1883).</div>
+          <div><span style="color:#38bdf8;">[00:00:02]</span> Menunggu pemicu simulasi anomali...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slider Kapasitas 3-Step: Presisi Geometri & Layout Anti-Geser -->
+    <section class="slider-card" id="pricing-slider">
+      <div class="slider-header-grid">
+        <div class="slider-header-info">
+          <span style="font-size:0.8rem; font-weight:700; color:var(--sky-blue); text-transform:uppercase; letter-spacing:0.05em; font-family:var(--font-mono);">KALKULATOR FLEET ZERO TRUST</span>
+          <h2 style="font-size:1.75rem; color:var(--text-main); margin-top:0.25rem;">Skala Perlindungan Perusahaan Anda</h2>
+          <div class="slider-toggle-wrap">
+            <button id="annualSwitchBtn" class="billing-pill-btn" onclick="toggleDiskonTahunan()">
+              Penagihan: <strong id="annualSwitchLabel" style="color:var(--hot-pink);">Bulanan</strong>
+              <span class="discount-badge">Hemat 20% Tahunan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Kotak Harga Terkunci (Fixed Geometry Box) -->
+        <div class="slider-fixed-price-card">
+          <div class="price-tier-meta">
+            <span class="tier-chip" id="tierChipBadge">PAKET 02</span>
+            <span class="sla-chip" id="tierSlaBadge">SLA 99.9%</span>
+          </div>
+          <div class="price-value-container" id="dynamicPriceDisplay">
+            Rp 1.200.000<span class="price-period">/bln</span>
+          </div>
+          <div class="price-label-desc" id="selectedTierTag">
+            Paket Professional (Paling Populer)
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Slider Tepat 3 Step: 0 = Starter (5), 1 = Pro (25), 2 = Enterprise (Unlimited) -->
+      <div class="slider-wrapper-3">
+        <input type="range" min="0" max="2" step="1" value="1" class="step-range-input-3" id="tierRangeSlider" oninput="onStepSliderBerubah(this.value)" />
+
+        <!-- 3 Label Persis Sejajar: Format Seragam & Rapi -->
+        <div class="slider-3-labels">
+          <div class="slider-3-item align-left" id="stepLabel0" onclick="pilihStepSlider(0)">
+            <span class="step-title-3">5 Perangkat</span>
+            <span class="step-sub-3">Paket Starter (Rp 450rb/bln)</span>
+          </div>
+          <div class="slider-3-item align-center active" id="stepLabel1" onclick="pilihStepSlider(1)">
+            <span class="step-title-3">25 Perangkat</span>
+            <span class="step-sub-3">Paket Professional (Rp 1.2jt/bln)</span>
+          </div>
+          <div class="slider-3-item align-right" id="stepLabel2" onclick="pilihStepSlider(2)">
+            <span class="step-title-3">Tanpa Batas</span>
+            <span class="step-sub-3">Paket Enterprise (Kustom SLA)</span>
+          </div>
+        </div>
+
+        <div class="capacity-track">
+          <div class="capacity-bar" id="tierCapacityBar" style="width: 60%;"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.825rem; color:var(--text-dim); font-family:var(--font-mono); margin-top:0.4rem;">
+          <span id="tierTelemetryRate">Kapasitas: 100.000 Event Telemetri/hari</span>
+          <span id="tierContainmentMode">Isolasi Lateral: Otonom &lt; 1.5 ms</span>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="pricing.html" class="btn btn-sky" style="padding:0.75rem 2rem;">Lihat Spesifikasi Matriks Lengkap →</a>
+      </div>
+    </section>
+
+    <!-- 3 Fitur Utama Berdasarkan Brief Dosen -->
+    <div class="section-header">
+      <div class="pill-badge">Pilar Teknologi NetFort</div>
+      <h2>Tiga Arsitektur Inti Pertahanan Otonom</h2>
+      <p>Dirancang untuk membebaskan tim IT dari stres celah keamanan baru tanpa mengorbankan kecepatan akses operasional.</p>
+    </div>
+
+    <div class="bento-grid">
+      <div class="bento-card bento-col-4">
+        <div class="bento-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Continuous Authentication</h3>
+        <p>Sistem tidak pernah memercayai perangkat apa pun secara default. Mewajibkan verifikasi identitas berlapis dan berkelanjutan setiap kali ada permintaan akses, baik dari dalam maupun luar jaringan.</p>
+      </div>
+
+      <div class="bento-card bento-col-4">
+        <div class="bento-icon-box pink">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>IoT Micro-Segmentation</h3>
+        <p>Membagi jaringan menjadi segmen-segmen kecil yang terisolasi secara otomatis. Mencegah penyebaran ancaman dari perangkat IoT (sensor pintu pintar, CCTV) yang rentan dieksploitasi peretas.</p>
+      </div>
+
+      <div class="bento-card bento-col-4">
+        <div class="bento-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>AI Behavioral Profiling</h3>
+        <p>Algoritma Machine Learning secara pasif mempelajari pola komunikasi normal setiap perangkat. Jika sensor suhu tiba-tiba mencoba mengirim paket ke server database internal, AI langsung memutus koneksi dalam milidetik.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>NetFort <span class="highlight-sky">Technologies</span></span>
+        </a>
+        <p>Perusahaan keamanan siber B2B terkemuka yang berfokus pada arsitektur Zero Trust dan mitigasi ancaman lateral pada ekosistem IoT modern.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solusi & Fitur</h5>
+        <ul>
+          <li><a href="features.html">Continuous Authentication</a></li>
+          <li><a href="features.html">IoT Micro-Segmentation</a></li>
+          <li><a href="features.html">AI Behavioral Profiling</a></li>
+          <li><a href="pricing.html">Paket Langganan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="about.html">Tentang NetFort</a></li>
+          <li><a href="about.html#persona">Solusi untuk Tim IT</a></li>
+          <li><a href="contact.html">Jadwalkan Demo</a></li>
+          <li><a href="faq.html">Pusat Bantuan / FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kepatuhan & Hukum</h5>
+        <ul>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Sertifikasi ISO 27001</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NetFort Technologies. Hak Cipta Dilindungi Undang-Undang.</div>
+      <div>Prinsip: <em>"Never trust, always verify."</em></div>
+    </div>
+  </footer>
+
+  <!-- Script Interaktif Simulasi, Console Hero & Slider -->
+  <script>
+    const dataPaket = [
+      {
+        nama: "Paket Starter (5 Perangkat)",
+        chip: "PAKET 01",
+        sla: "SLA 99.5%",
+        hargaBulan: "Rp 450.000",
+        hargaTahun: "Rp 360.000",
+        suffixBulan: "/bln",
+        telemetri: "10.000 Event Telemetri/hari",
+        isolasi: "Alert Cepat & Isolasi Terpandu",
+        barPct: 20
+      },
+      {
+        nama: "Paket Professional (Paling Populer)",
+        chip: "PAKET 02",
+        sla: "SLA 99.9%",
+        hargaBulan: "Rp 1.200.000",
+        hargaTahun: "Rp 960.000",
+        suffixBulan: "/bln",
+        telemetri: "100.000 Event Telemetri/hari",
+        isolasi: "Otonom Penuh < 1.5 ms",
+        barPct: 60
+      },
+      {
+        nama: "Paket Enterprise (Armada Tanpa Batas)",
+        chip: "ENTERPRISE",
+        sla: "SLA Dedicated 99.99%",
+        hargaBulan: "Kustom SLA",
+        hargaTahun: "Kustom SLA",
+        suffixBulan: "/Dedicated",
+        telemetri: "Throughput Tak Terbatas",
+        isolasi: "SLA Dedicated & Air-Gapped",
+        barPct: 100
+      }
+    ];
+
+    let stepAktif = 1;
+    let isDiskonTahunan = false;
+
+    function pilihStepSlider(idx) {
+      document.getElementById('tierRangeSlider').value = idx;
+      onStepSliderBerubah(idx);
+    }
+
+    function onStepSliderBerubah(val) {
+      stepAktif = parseInt(val);
+      const paket = dataPaket[stepAktif];
+
+      for (let i = 0; i <= 2; i++) {
+        const item = document.getElementById('stepLabel' + i);
+        if (item) {
+          if (i === stepAktif) item.classList.add('active');
+          else item.classList.remove('active');
+        }
+      }
+
+      const harga = isDiskonTahunan ? paket.hargaTahun : paket.hargaBulan;
+      document.getElementById('tierChipBadge').textContent = paket.chip;
+      document.getElementById('tierSlaBadge').textContent = paket.sla;
+      document.getElementById('dynamicPriceDisplay').innerHTML = `${harga}<span class="price-period">${paket.suffixBulan}</span>`;
+      document.getElementById('selectedTierTag').textContent = paket.nama;
+      document.getElementById('tierCapacityBar').style.width = paket.barPct + "%";
+      document.getElementById('tierTelemetryRate').textContent = "Kapasitas: " + paket.telemetri;
+      document.getElementById('tierContainmentMode').innerHTML = "Isolasi Lateral: " + paket.isolasi;
+    }
+
+    function toggleDiskonTahunan() {
+      isDiskonTahunan = !isDiskonTahunan;
+      const label = document.getElementById('annualSwitchLabel');
+      label.textContent = isDiskonTahunan ? "Tahunan (-20% Aktif)" : "Bulanan";
+      onStepSliderBerubah(stepAktif);
+    }
+
+    // Simulasi Arsitektur Hero Console
+    function simulasikanSeranganHero() {
+      const nodeSensor = document.getElementById('heroNodeSensor');
+      const pillSensor = document.getElementById('heroPillSensor');
+      const feed1 = document.getElementById('heroFeedLine1');
+      const feed2 = document.getElementById('heroFeedLine2');
+
+      nodeSensor.classList.add('breach-target');
+      pillSensor.className = 'node-status-pill pill-isolated';
+      pillSensor.textContent = 'TERPUTUS < 1.2ms';
+
+      feed1.innerHTML = '<span style="color:#f43f5e; font-weight:700;">[!] ANOMALI: Sensor R4 mencoba probe lateral ke Database Payroll!</span>';
+      feed2.innerHTML = '<span style="color:#34d399; font-weight:700;">[✓] OTONOM: eBPF memblokir paket & mengisolasi segmen dalam 1.18 ms. Database AMAN.</span>';
+    }
+
+    function resetSimulasiHero() {
+      const nodeSensor = document.getElementById('heroNodeSensor');
+      const pillSensor = document.getElementById('heroPillSensor');
+      const feed1 = document.getElementById('heroFeedLine1');
+      const feed2 = document.getElementById('heroFeedLine2');
+
+      nodeSensor.classList.remove('breach-target');
+      pillSensor.className = 'node-status-pill pill-ok';
+      pillSensor.textContent = 'TERVERIFIKASI';
+
+      feed1.innerHTML = '• Baseline: Pola lalu lintas IoT normal (0 pergerakan lateral).';
+      feed2.innerHTML = '• Integritas Segmen: 100% Sesuai Postur Zero Trust.';
+    }
+
+    // Simulasi Serangan Sensor IoT Otonom
+    const skenarioSerangan = {
+      suhu: {
+        target: "IOT-SENSOR-SUHU-R4",
+        log: [
+          "[!] ANOMALI TERDETEKSI: Sensor Suhu mencoba membuka socket TCP ke 10.0.4.15 (Database Payroll Internal)",
+          "[!] PELANGGARAN PROFILING: Sensor suhu tidak memiliki hak akses komunikasi di luar port MQTT 1883",
+          "[+] NetFort AI menganalisis deviasi pola: 99.8% indikasi peretasan lateral",
+          "[TINDAKAN OTONOM] eBPF Micro-Segmentation memutus segmen perangkat IOT-SENSOR-SUHU-R4",
+          "[TINDAKAN OTONOM] Port komunikasi ke Database Internal langsung di-drop dalam 1.2 milidetik",
+          "[SUKSES] Pergerakan lateral digagalkan seketika. Sensor suhu lain & operasional server tetap berjalan 100% normal!"
+        ]
+      },
+      cctv: {
+        target: "IOT-KAMERA-CCTV-LOBBY",
+        log: [
+          "[!] ANOMALI TERDETEKSI: Firmware CCTV lama mencoba melakukan port scan SYN sweep ke subnet IT",
+          "[!] Percobaan pencarian celah eksploitasi zero-day pada switch inti",
+          "[+] Algoritma AI mengidentifikasi signature botnet Mirai/lateral scanner",
+          "[TINDAKAN OTONOM] Segmen kamera CCTV diisolasi ke karantina sandbox otonom",
+          "[SUKSES] Seluruh server inti terlindungi. Tiket insiden otomatis diteruskan ke tim SOC."
+        ]
+      },
+      auth: {
+        target: "GATEWAY-AUTH-KARYAWAN",
+        log: [
+          "[!] Permintaan akses file sensitif dengan token sesi lama",
+          "[!] Continuous Authentication: Deteksi deviasi lokasi IP & perilaku pengetikan",
+          "[TINDAKAN OTONOM] Mewajibkan verifikasi identitas sekunder instan",
+          "[SUKSES] Akses tidak sah dibatalkan sebelum data dapat diunduh."
+        ]
+      }
+    };
+
+    let skenarioDipilih = 'suhu';
+    let sedangSimulasi = false;
+
+    function pilihSkenario(btn, key) {
+      if (sedangSimulasi) return;
+      document.querySelectorAll('.sim-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      skenarioDipilih = key;
+      document.getElementById('targetPerangkatLabel').textContent = skenarioSerangan[key].target;
+      document.getElementById('nilaiKeyakinanDisplay').textContent = "0%";
+      document.getElementById('waktuIsolasiDisplay').textContent = "Waktu Reaksi: 0.00 ms";
+      document.getElementById('statusSimulasiNotice').textContent = "SIAP &bull; Skenario aktif: " + key.toUpperCase();
+    }
+
+    function jalankanSimulasiIoT() {
+      if (sedangSimulasi) return;
+      sedangSimulasi = true;
+
+      const btn = document.getElementById('btnEksekusiSim');
+      const term = document.getElementById('terminalSimulasi');
+      const notice = document.getElementById('statusSimulasiNotice');
+      const nilaiKeyakinan = document.getElementById('nilaiKeyakinanDisplay');
+      const waktuDisplay = document.getElementById('waktuIsolasiDisplay');
+
+      btn.disabled = true;
+      btn.textContent = "AI Sedang Menganalisis & Mengisolasi...";
+      notice.textContent = "🚨 ANOMALI PERILAKU TERDETEKSI &bull; AI MEMUTUS SEGMEN";
+      notice.style.color = "var(--hot-pink)";
+      term.innerHTML = "";
+
+      const skenario = skenarioSerangan[skenarioDipilih];
+      let step = 0;
+      let waktuAwal = performance.now();
+
+      let interval = setInterval(() => {
+        if (step < skenario.log.length) {
+          const baris = document.createElement('div');
+          const elapsedMs = (performance.now() - waktuAwal).toFixed(2);
+          
+          let teks = skenario.log[step];
+          let warna = "#e2e8f0";
+          if (teks.includes("[!]")) warna = "#f43f5e";
+          if (teks.includes("[TINDAKAN")) warna = "#38bdf8";
+          if (teks.includes("[SUKSES]")) warna = "#10b981";
+
+          baris.innerHTML = `<span style="color:#8aa0bd;">[+${elapsedMs}ms]</span> <span style="color:${warna}">${teks}</span>`;
+          term.appendChild(baris);
+          term.scrollTop = term.scrollHeight;
+
+          let score = Math.min(99.8, Math.round((step + 1) * (99.8 / skenario.log.length)));
+          nilaiKeyakinan.textContent = score + "%";
+          waktuDisplay.textContent = `Waktu Reaksi: 1.24 ms`;
+
+          step++;
+        } else {
+          clearInterval(interval);
+          sedangSimulasi = false;
+          btn.disabled = false;
+          btn.textContent = "⚡ Uji Skenario Lainnya";
+          notice.textContent = "✓ TERISOLASI OTONOM &bull; ANCAMAN LATERAL DIPUTUS";
+          notice.style.color = "var(--sky-blue)";
+        }
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>

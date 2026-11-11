@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paket & Harga Langganan — NetFort Technologies</title>
+  <meta name="description" content="Paket berlangganan NetFort Zero Trust transparan dan fleksibel. Dukungan isolasi lateral otonom untuk skala 5 hingga ribuan perangkat IoT.">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pricing-table-clean {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+    }
+    .pricing-table-clean th, .pricing-table-clean td {
+      padding: 1.15rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.95rem;
+    }
+    .pricing-table-clean th {
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      font-weight: 800;
+    }
+    .pricing-table-clean tr:hover td {
+      background: rgba(5, 147, 198, 0.03);
+    }
+    .pricing-table-clean tr:last-child td {
+      border-bottom: none;
+    }
+    .col-highlight {
+      background: rgba(5, 147, 198, 0.04);
+      border-left: 2px solid var(--sky-blue);
+      border-right: 2px solid var(--sky-blue);
+    }
+  </style>
+  <script src="cyber.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar Presisi Tetap -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>NetFort <span class="highlight-sky">Technologies</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="features.html">Fitur & Teknologi</a></li>
+        <li><a href="pricing.html" class="active">Paket & Harga</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Kontak & Demo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="portal.html" class="nav-signin-link">Masuk Portal</a>
+        <a href="pricing.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Mulai Uji Coba</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="section-header">
+      <div class="pill-badge">Model Berlangganan Transparan</div>
+      <h1>Pilih Skala Perlindungan Zero Trust</h1>
+      <p>Tanpa biaya tersembunyi. Dapatkan perlindungan isolasi lateral otonom dan Continuous Authentication untuk armada perangkat pintar Anda.</p>
+    </div>
+
+    <!-- Slider Estimasi 3 Step Pas & Geometri Terkunci -->
+    <div class="slider-card" style="margin-top: 1rem; margin-bottom: 3.5rem;">
+      <div class="slider-header-grid">
+        <div class="slider-header-info">
+          <span style="font-size:0.8rem; font-weight:700; color:var(--sky-blue); text-transform:uppercase; letter-spacing:0.05em; font-family:var(--font-mono);">SIMULATOR FLEET CAPACITY</span>
+          <h2 style="font-size:1.6rem; color:var(--text-main); margin-top:0.25rem;">Estimasi Kapasitas & Biaya Paket</h2>
+          <div class="slider-toggle-wrap">
+            <button id="billingBtn" class="billing-pill-btn" onclick="toggleBillingPaket()">
+              Penagihan: <strong id="billingModeTxt" style="color:var(--hot-pink);">Bulanan</strong>
+              <span class="discount-badge">Hemat 20% Tahunan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Kotak Harga Terkunci (Fixed Geometry Box) -->
+        <div class="slider-fixed-price-card">
+          <div class="price-tier-meta">
+            <span class="tier-chip" id="pricingChipBadge">PAKET 02</span>
+            <span class="sla-chip" id="pricingSlaBadge">SLA 99.9%</span>
+          </div>
+          <div class="price-value-container" id="pricingPriceDisplay">
+            Rp 1.200.000<span class="price-period">/bln</span>
+          </div>
+          <div class="price-label-desc" id="pricingTierTag">
+            Paket Professional (Pilihan Utama)
+          </div>
+        </div>
+      </div>
+
+      <!-- Range Slider 3 Step: 0, 1, 2 -->
+      <div class="slider-wrapper-3">
+        <input type="range" min="0" max="2" step="1" value="1" class="step-range-input-3" id="pricingPageSlider" oninput="onStepPricingBerubah(this.value)" />
+
+        <div class="slider-3-labels">
+          <div class="slider-3-item align-left" id="pStep0" onclick="pilihStepPricing(0)">
+            <span class="step-title-3">5 Perangkat</span>
+            <span class="step-sub-3">Paket Starter (Rp 450rb/bln)</span>
+          </div>
+          <div class="slider-3-item align-center active" id="pStep1" onclick="pilihStepPricing(1)">
+            <span class="step-title-3">25 Perangkat</span>
+            <span class="step-sub-3">Paket Professional (Rp 1.2jt/bln)</span>
+          </div>
+          <div class="slider-3-item align-right" id="pStep2" onclick="pilihStepPricing(2)">
+            <span class="step-title-3">Tanpa Batas</span>
+            <span class="step-sub-3">Paket Enterprise (Kustom SLA)</span>
+          </div>
+        </div>
+
+        <div class="capacity-track">
+          <div class="capacity-bar" id="pricingCapacityBar" style="width: 60%;"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:0.825rem; color:var(--text-dim); font-family:var(--font-mono); margin-top:0.4rem;">
+          <span id="pThroughput">Kapasitas: 100.000 Event Telemetri/hari</span>
+          <span id="pContainment">Isolasi Lateral: Otonom &lt; 1.5 ms</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid 3 Paket Utama (Tersinkronisasi Otomatis) -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:1.75rem; align-items:stretch;">
+      
+      <!-- Starter Card (Step 0) -->
+      <div class="bento-card" id="cardTier0" style="display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;" onclick="pilihStepPricing(0)">
+        <div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Starter</div>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin:0.35rem 0 1.5rem;">Untuk kantor cabang atau uji coba segmen IoT terbatas.</p>
+
+          <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:1.5rem; margin-bottom:1.5rem;">
+            <div id="cardStarterPrice" style="font-size:2.5rem; font-weight:900; font-family:var(--font-mono); color:var(--text-main);">
+              Rp 450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
+            </div>
+            <div style="font-size:0.85rem; color:var(--sky-blue); font-weight:700; margin-top:0.25rem;">Hingga 5 Perangkat IoT Terpantau</div>
+          </div>
+
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.95rem; color:var(--text-main);">
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> 10.000 telemetri event/hari
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Continuous Authentication dasar
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Notifikasi real-time via Email & Webhook
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center; color:var(--text-dim);">
+              <span>✕</span> Isolasi otonom milidetik (khusus Pro/Enterprise)
+            </li>
+          </ul>
+        </div>
+
+        <a href="contact.html?plan=starter" class="btn btn-outline" style="width:100%; margin-top:2.5rem;">
+          Pilih Paket Starter
+        </a>
+      </div>
+
+      <!-- Professional Card (Step 1 - Highlight) -->
+      <div class="bento-card card-highlighted" id="cardTier1" style="display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;" onclick="pilihStepPricing(1)">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Professional</div>
+            <span class="pill-badge pill-badge-pink" style="margin:0;">REKOMENDASI CISO</span>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin:0.35rem 0 1.5rem;">Perlindungan penuh dengan isolasi ancaman otonom &lt; 1.5 ms.</p>
+
+          <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:1.5rem; margin-bottom:1.5rem;">
+            <div id="cardProPrice" style="font-size:2.5rem; font-weight:900; font-family:var(--font-mono); color:var(--hot-pink);">
+              Rp 1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
+            </div>
+            <div style="font-size:0.85rem; color:var(--hot-pink); font-weight:700; margin-top:0.25rem;">Hingga 25 Perangkat IoT Terpantau</div>
+          </div>
+
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.95rem; color:var(--text-main);">
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--hot-pink); font-weight:800;">✓</span> 100.000 telemetri event/hari
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--hot-pink); font-weight:800;">✓</span> <strong>AI Behavioral Profiling Otonom (&lt; 1.5 ms)</strong>
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--hot-pink); font-weight:800;">✓</span> IoT Micro-Segmentation otomatis
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--hot-pink); font-weight:800;">✓</span> Integrasi SIEM (Splunk, Sentinel, Jira)
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--hot-pink); font-weight:800;">✓</span> Dukungan Prioritas SLA 4 Jam
+            </li>
+          </ul>
+        </div>
+
+        <a href="contact.html?plan=professional" class="btn btn-primary" style="width:100%; margin-top:2.5rem;">
+          Mulai Uji Coba 14 Hari Gratis →
+        </a>
+      </div>
+
+      <!-- Enterprise Card (Step 2) -->
+      <div class="bento-card" id="cardTier2" style="display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;" onclick="pilihStepPricing(2)">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Enterprise</div>
+            <span class="pill-badge" style="margin:0; background:var(--sky-subtle); color:var(--sky-blue); border-color:var(--sky-border);">ARMADA TANPA BATAS</span>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin:0.35rem 0 1.5rem;">Infrastruktur smart campus, manufaktur, dan perbankan skala besar.</p>
+
+          <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:1.5rem; margin-bottom:1.5rem;">
+            <div id="cardEnterprisePrice" style="font-size:2.5rem; font-weight:900; font-family:var(--font-mono); color:var(--text-main);">
+              Kustom SLA<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/Dedicated</span>
+            </div>
+            <div style="font-size:0.85rem; color:var(--sky-blue); font-weight:700; margin-top:0.25rem;">Jumlah Perangkat IoT Tanpa Batas</div>
+          </div>
+
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.85rem; font-size:0.95rem; color:var(--text-main);">
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Throughput event tak terbatas
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Opsi On-Premises Air-Gapped Cluster
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Penyesuaian model AI untuk protokol internal khusus
+            </li>
+            <li style="display:flex; gap:0.5rem; align-items:center;">
+              <span style="color:var(--sky-blue); font-weight:800;">✓</span> Hotline Respons Insiden 24/7 & SLA 15 Menit
+            </li>
+          </ul>
+        </div>
+
+        <a href="contact.html?plan=enterprise" class="btn btn-outline" style="width:100%; margin-top:2.5rem;">
+          Hubungi Konsultan Keamanan
+        </a>
+      </div>
+    </div>
+
+    <!-- Tabel Matriks Perbandingan Fitur -->
+    <div class="section-header" style="margin-top: 5rem; margin-bottom: 2rem;">
+      <h2>Matriks Perbandingan Fitur Lengkap</h2>
+      <p>Transparansi spesifikasi teknis untuk evaluasi komprehensif tim IT Anda.</p>
+    </div>
+
+    <table class="pricing-table-clean">
+      <thead>
+        <tr>
+          <th style="width: 40%;">Fitur & Arsitektur</th>
+          <th style="width: 20%; text-align: center;">Starter</th>
+          <th style="width: 20%; text-align: center;" class="col-highlight">Professional</th>
+          <th style="width: 20%; text-align: center;">Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Batas Perangkat IoT Terpantau</td>
+          <td style="text-align: center; color:var(--text-dim);">Hingga 5 Perangkat</td>
+          <td style="text-align: center; font-weight:700; color:var(--text-main);" class="col-highlight">Hingga 25 Perangkat</td>
+          <td style="text-align: center; font-weight:700; color:var(--sky-blue);">Tanpa Batas</td>
+        </tr>
+        <tr>
+          <td>Waktu Pemetaan Tanpa Rombak Topologi</td>
+          <td style="text-align: center;">&lt; 48 Jam</td>
+          <td style="text-align: center; font-weight:700;" class="col-highlight">&lt; 48 Jam</td>
+          <td style="text-align: center; font-weight:700;">Prioritas Terpandu</td>
+        </tr>
+        <tr>
+          <td>AI-Driven Behavioral Profiling Otonom</td>
+          <td style="text-align: center; color:var(--text-dim);">—</td>
+          <td style="text-align: center; color:var(--hot-pink); font-weight:800;" class="col-highlight">✓ Termasuk (&lt; 1.5 ms)</td>
+          <td style="text-align: center; color:var(--hot-pink); font-weight:800;">✓ Termasuk (&lt; 1.5 ms)</td>
+        </tr>
+        <tr>
+          <td>IoT Micro-Segmentation Otomatis</td>
+          <td style="text-align: center; color:var(--text-dim);">—</td>
+          <td style="text-align: center; color:var(--sky-blue); font-weight:800;" class="col-highlight">✓ Termasuk</td>
+          <td style="text-align: center; color:var(--sky-blue); font-weight:800;">✓ Termasuk</td>
+        </tr>
+        <tr>
+          <td>Integrasi SIEM & IT Ticketing</td>
+          <td style="text-align: center; color:var(--text-dim);">Hanya Webhook</td>
+          <td style="text-align: center; color:var(--sky-blue); font-weight:800;" class="col-highlight">✓ Splunk & Sentinel</td>
+          <td style="text-align: center; color:var(--sky-blue); font-weight:800;">✓ Bi-directional Kustom</td>
+        </tr>
+        <tr>
+          <td>SLA Dukungan Teknis</td>
+          <td style="text-align: center; color:var(--text-dim);">Email (48 Jam)</td>
+          <td style="text-align: center; font-weight:700;" class="col-highlight">Prioritas (4 Jam)</td>
+          <td style="text-align: center; font-weight:800; color:var(--hot-pink);">Dedicated 24/7 (15 Menit)</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>NetFort <span class="highlight-sky">Technologies</span></span>
+        </a>
+        <p>Inovator Zero Trust Architecture untuk mitigasi pergerakan lateral ancaman siber.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Fitur Inti</h5>
+        <ul>
+          <li><a href="features.html">Continuous Authentication</a></li>
+          <li><a href="features.html">IoT Micro-Segmentation</a></li>
+          <li><a href="features.html">AI Behavioral Profiling</a></li>
+          <li><a href="pricing.html">Paket Langganan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="about.html">Tentang NetFort</a></li>
+          <li><a href="contact.html">Kontak & Demo</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kepatuhan</h5>
+        <ul>
+          <li><a href="#">Privasi Data</a></li>
+          <li><a href="#">Standar ISO 27001</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NetFort Technologies. Hak Cipta Dilindungi Undang-Undang.</div>
+    </div>
+  </footer>
+
+  <script>
+    const paketHarga = [
+      {
+        nama: "Paket Starter (5 Perangkat)",
+        chip: "PAKET 01",
+        sla: "SLA 99.5%",
+        hargaBulan: "Rp 450.000",
+        hargaTahun: "Rp 360.000",
+        suffixBulan: "/bln",
+        telemetri: "10.000 Event Telemetri/hari",
+        isolasi: "Alert Cepat & Panduan Isolasi",
+        barPct: 20
+      },
+      {
+        nama: "Paket Professional (Pilihan Utama)",
+        chip: "PAKET 02",
+        sla: "SLA 99.9%",
+        hargaBulan: "Rp 1.200.000",
+        hargaTahun: "Rp 960.000",
+        suffixBulan: "/bln",
+        telemetri: "100.000 Event Telemetri/hari",
+        isolasi: "Otonom Penuh < 1.5 ms",
+        barPct: 60
+      },
+      {
+        nama: "Paket Enterprise (Armada Tanpa Batas)",
+        chip: "ENTERPRISE",
+        sla: "SLA Dedicated 99.99%",
+        hargaBulan: "Kustom SLA",
+        hargaTahun: "Kustom SLA",
+        suffixBulan: "/Dedicated",
+        telemetri: "Throughput Tak Terbatas",
+        isolasi: "SLA Dedicated & Air-Gapped",
+        barPct: 100
+      }
+    ];
+
+    let pStepAktif = 1;
+    let pIsTahunan = false;
+
+    function pilihStepPricing(idx) {
+      document.getElementById('pricingPageSlider').value = idx;
+      onStepPricingBerubah(idx);
+    }
+
+    function onStepPricingBerubah(val) {
+      pStepAktif = parseInt(val);
+      const data = paketHarga[pStepAktif];
+
+      for (let i = 0; i <= 2; i++) {
+        const item = document.getElementById('pStep' + i);
+        const card = document.getElementById('cardTier' + i);
+        if (item) {
+          if (i === pStepAktif) item.classList.add('active');
+          else item.classList.remove('active');
+        }
+        if (card) {
+          if (i === pStepAktif) card.classList.add('card-highlighted');
+          else card.classList.remove('card-highlighted');
+        }
+      }
+
+      const harga = pIsTahunan ? data.hargaTahun : data.hargaBulan;
+      document.getElementById('pricingChipBadge').textContent = data.chip;
+      document.getElementById('pricingSlaBadge').textContent = data.sla;
+      document.getElementById('pricingPriceDisplay').innerHTML = `${harga}<span class="price-period">${data.suffixBulan}</span>`;
+      document.getElementById('pricingTierTag').textContent = data.nama;
+      document.getElementById('pricingCapacityBar').style.width = data.barPct + "%";
+      document.getElementById('pThroughput').textContent = "Kapasitas: " + data.telemetri;
+      document.getElementById('pContainment').innerHTML = "Isolasi Lateral: " + data.isolasi;
+    }
+
+    function toggleBillingPaket() {
+      pIsTahunan = !pIsTahunan;
+      const mode = document.getElementById('billingModeTxt');
+      const cardStarter = document.getElementById('cardStarterPrice');
+      const cardPro = document.getElementById('cardProPrice');
+
+      if (pIsTahunan) {
+        mode.textContent = "Tahunan (-20% Aktif)";
+        cardStarter.innerHTML = 'Rp 360.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+        cardPro.innerHTML = 'Rp 960.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+      } else {
+        mode.textContent = "Bulanan";
+        cardStarter.innerHTML = 'Rp 450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+        cardPro.innerHTML = 'Rp 1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+      }
+      onStepPricingBerubah(pStepAktif);
+    }
+  </script>
+
+</body>
+</html>

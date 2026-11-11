@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Masuk Klien — NetFort Technologies</title>
+  <meta name="description" content="Akses Portal Konsol Keamanan Zero Trust & Manajemen IoT Terpusat NetFort Technologies untuk CISO dan Tim IT.">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .portal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      max-width: 480px;
+      margin: 3rem auto;
+      box-shadow: var(--shadow-card);
+    }
+    .portal-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      background: var(--bg-canvas);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .portal-input:focus {
+      border-color: var(--sky-blue);
+      box-shadow: 0 0 0 3px rgba(5, 147, 198, 0.15);
+    }
+    .portal-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+    .sso-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .sso-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--sky-blue);
+    }
+  </style>
+  <script src="cyber.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar Presisi Tetap -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>NetFort <span class="highlight-sky">Technologies</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="features.html">Fitur & Teknologi</a></li>
+        <li><a href="pricing.html">Paket & Harga</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Kontak & Demo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="portal.html" class="nav-signin-link active">Masuk Portal</a>
+        <a href="pricing.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Mulai Uji Coba</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper" style="padding-top: 2rem;">
+    <div class="portal-card" style="max-width: 520px;">
+      <!-- Tab Pilihan: Masuk vs Daftar Akun Baru -->
+      <div class="portal-tabs">
+        <button type="button" id="tabBtnLogin" class="portal-tab-btn active" onclick="switchPortalTab('login')">
+          Masuk ke Konsol
+        </button>
+        <button type="button" id="tabBtnSignup" class="portal-tab-btn" onclick="switchPortalTab('signup')">
+          Daftar Akun Baru (14 Hari Gratis)
+        </button>
+      </div>
+
+      <!-- FORM 1: MASUK KE KONSOL (LOGIN) -->
+      <div id="loginView">
+        <div style="text-align:center; margin-bottom: 1.75rem;">
+          <div class="pill-badge pill-badge-pink" style="margin-bottom: 0.5rem;">
+            Autentikasi Zero Trust
+          </div>
+          <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.35rem;">
+            Portal Klien NetFort
+          </h1>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Akses konsol manajemen IoT & telemetri otonom terpusat.
+          </p>
+        </div>
+
+        <form id="loginForm" onsubmit="event.preventDefault(); simulasiLoginPortal();">
+          <div style="margin-bottom: 1.25rem;">
+            <label class="portal-label">Email Resmi Korporat</label>
+            <input type="email" class="portal-input" placeholder="budi@perusahaan.co.id" required />
+          </div>
+
+          <div style="margin-bottom: 1.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <label class="portal-label" style="margin:0;">Kata Sandi</label>
+              <a href="#" style="font-size:0.8rem; color:var(--sky-blue); text-decoration:none; font-weight:600;">Lupa Sandi?</a>
+            </div>
+            <input type="password" class="portal-input" placeholder="••••••••••••" required />
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+            <input type="checkbox" id="trustDevice" checked />
+            <label for="trustDevice">Verifikasi Continuous 2FA pada Perangkat Ini</label>
+          </div>
+
+          <button type="submit" id="btnSubmitPortal" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;">
+            Masuk ke Konsol Keamanan →
+          </button>
+
+          <div style="position:relative; text-align:center; margin: 1.75rem 0 1.25rem;">
+            <span style="background:var(--bg-surface); padding:0 0.75rem; color:var(--text-dim); font-size:0.8rem; position:relative; z-index:1;">ATAU SSO ENTERPRISE</span>
+            <div style="position:absolute; top:50%; left:0; width:100%; height:1px; background:var(--border-subtle); z-index:0;"></div>
+          </div>
+
+          <button type="button" class="sso-btn" onclick="simulasiLoginPortal();">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Masuk dengan Okta / Azure AD / Google SSO
+          </button>
+        </form>
+      </div>
+
+      <!-- FORM 2: DAFTAR AKUN BARU (SIGN UP / REGISTRASI UJI COBA 14 HARI) -->
+      <div id="signupView" style="display: none;">
+        <div style="text-align:center; margin-bottom: 1.75rem;">
+          <div class="pill-badge" style="margin-bottom: 0.5rem;">
+            Uji Coba 14 Hari Tanpa Risiko
+          </div>
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.35rem;">
+            Buat Akun Konsol Zero Trust
+          </h2>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Dapatkan tenant sandbox instan untuk memetakan armada IoT Anda.
+          </p>
+        </div>
+
+        <form id="signupForm" onsubmit="event.preventDefault(); simulasiRegisterPortal();">
+          <div style="margin-bottom: 1.15rem;">
+            <label class="portal-label">Nama Lengkap Anda</label>
+            <input type="text" class="portal-input" placeholder="Budi Santoso" required />
+          </div>
+
+          <div style="margin-bottom: 1.15rem;">
+            <label class="portal-label">Email Resmi Korporat (Domain Perusahaan)</label>
+            <input type="email" class="portal-input" placeholder="budi@namaperusahaan.co.id" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.15rem;">
+            <div>
+              <label class="portal-label">Nama Perusahaan</label>
+              <input type="text" class="portal-input" placeholder="PT Nusantara Logistik" required />
+            </div>
+            <div>
+              <label class="portal-label">Jabatan di Perusahaan</label>
+              <select class="portal-input" style="cursor: pointer;" required>
+                <option value="IT Security Manager" selected>IT Security Manager</option>
+                <option value="CISO">CISO / Direktur Keamanan</option>
+                <option value="Network Administrator">Network Administrator</option>
+                <option value="DevOps Engineer">DevOps / Cloud Architect</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.15rem;">
+            <label class="portal-label">Estimasi Jumlah Perangkat IoT / Titik Akses</label>
+            <select class="portal-input" style="cursor: pointer;" required>
+              <option value="starter">1 - 5 Perangkat (Paket Starter)</option>
+              <option value="pro" selected>6 - 25 Perangkat (Paket Professional — Paling Populer)</option>
+              <option value="enterprise">&gt; 25 Perangkat (Enterprise Tanpa Batas)</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 1.35rem;">
+            <label class="portal-label">Buat Kata Sandi Konsol (Min. 8 Karakter)</label>
+            <input type="password" class="portal-input" placeholder="••••••••••••" minlength="8" required />
+          </div>
+
+          <div style="display:flex; align-items:flex-start; gap:0.5rem; margin-bottom: 1.5rem; font-size: 0.825rem; color: var(--text-muted); line-height: 1.5;">
+            <input type="checkbox" id="termsAgreement" required style="margin-top: 3px;" />
+            <label for="termsAgreement">
+              Saya menyetujui Ketentuan Layanan, Kebijakan Privasi Data, dan Penegakan Zero Trust NetFort Technologies.
+            </label>
+          </div>
+
+          <button type="submit" id="btnSubmitSignup" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;">
+            Aktivasi Akun Konsol (Uji Coba 14 Hari Gratis) →
+          </button>
+        </form>
+
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; font-size: 0.78rem; color: var(--text-dim); font-family: var(--font-mono);">
+          <span>✓ Tanpa Kartu Kredit</span>
+          <span>✓ Sandbox Terisolasi</span>
+          <span>✓ Enkripsi TLS 1.3</span>
+        </div>
+      </div>
+
+      <!-- Simulasi Status Validasi Zero Trust / Pendaftaran -->
+      <div id="portalVerificationBox" style="display:none; background:var(--bg-subtle); border:1.5px solid var(--sky-blue); border-radius:var(--radius-md); padding:1.75rem; text-align:center; margin-top:1.5rem;">
+        <div style="font-size:2.2rem; margin-bottom:0.5rem;">🛡️</div>
+        <div id="portalVerifyTitle" style="font-weight:800; color:var(--sky-blue); font-size:1.1rem; margin-bottom:0.35rem;">
+          Memeriksa Postur Keamanan Perangkat...
+        </div>
+        <p id="portalVerifyDesc" style="font-size:0.875rem; color:var(--text-muted); font-family:var(--font-mono); line-height:1.7;">
+          [✓] Sertifikat eBPF Tervalidasi<br />
+          [✓] Integritas Jaringan Terverifikasi: AMAN<br />
+          <span style="color:var(--hot-pink); font-weight:700;">Mengarahkan ke Dashboard CISO NetFort...</span>
+        </p>
+      </div>
+
+      <div style="text-align:center; margin-top: 1.75rem;">
+        <a href="index.html" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 600;">
+          ← Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>NetFort <span class="highlight-sky">Technologies</span></span>
+        </a>
+        <p>Inovator Zero Trust Architecture untuk mitigasi pergerakan lateral ancaman siber.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Fitur Inti</h5>
+        <ul>
+          <li><a href="features.html">Continuous Authentication</a></li>
+          <li><a href="features.html">IoT Micro-Segmentation</a></li>
+          <li><a href="features.html">AI Behavioral Profiling</a></li>
+          <li><a href="pricing.html">Paket Langganan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="about.html">Tentang NetFort</a></li>
+          <li><a href="contact.html">Kontak & Demo</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kepatuhan</h5>
+        <ul>
+          <li><a href="#">Privasi Data</a></li>
+          <li><a href="#">Standar ISO 27001</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NetFort Technologies. Hak Cipta Dilindungi Undang-Undang.</div>
+    </div>
+  </footer>
+
+  <script>
+    function switchPortalTab(tab) {
+      const loginView = document.getElementById('loginView');
+      const signupView = document.getElementById('signupView');
+      const tabBtnLogin = document.getElementById('tabBtnLogin');
+      const tabBtnSignup = document.getElementById('tabBtnSignup');
+      const verifyBox = document.getElementById('portalVerificationBox');
+
+      verifyBox.style.display = 'none';
+
+      if (tab === 'login') {
+        loginView.style.display = 'block';
+        signupView.style.display = 'none';
+        tabBtnLogin.classList.add('active');
+        tabBtnSignup.classList.remove('active');
+      } else {
+        loginView.style.display = 'none';
+        signupView.style.display = 'block';
+        tabBtnLogin.classList.remove('active');
+        tabBtnSignup.classList.add('active');
+      }
+    }
+
+    function simulasiLoginPortal() {
+      document.getElementById('loginView').style.display = 'none';
+      const verifyBox = document.getElementById('portalVerificationBox');
+      document.getElementById('portalVerifyTitle').textContent = "Memverifikasi Kredensial & Postur Perangkat...";
+      document.getElementById('portalVerifyDesc').innerHTML = `
+        [✓] Sertifikat eBPF Tervalidasi<br />
+        [✓] Continuous 2FA Berhasil: AMAN<br />
+        <span style="color:var(--hot-pink); font-weight:700;">Mengarahkan ke Konsol CISO NetFort Technologies...</span>
+      `;
+      verifyBox.style.display = 'block';
+
+      setTimeout(() => {
+        alert("Autentikasi Zero Trust Berhasil! Selamat datang di Konsol NetFort Technologies.");
+        window.location.href = "index.html";
+      }, 1600);
+    }
+
+    function simulasiRegisterPortal() {
+      document.getElementById('signupView').style.display = 'none';
+      const verifyBox = document.getElementById('portalVerificationBox');
+      document.getElementById('portalVerifyTitle').textContent = "Menginisialisasi Tenant Sandbox Zero Trust...";
+      document.getElementById('portalVerifyDesc').innerHTML = `
+        [✓] Domain Korporat Tervalidasi<br />
+        [✓] Alokasi Node eBPF Sandbox Selesai<br />
+        <span style="color:var(--hot-pink); font-weight:700;">Akun Uji Coba 14 Hari Siap! Mengarahkan ke Simulator...</span>
+      `;
+      verifyBox.style.display = 'block';
+
+      setTimeout(() => {
+        alert("Selamat! Akun Uji Coba 14 Hari NetFort Technologies berhasil diaktifkan.");
+        window.location.href = "index.html";
+      }, 1800);
+    }
+  </script>
+
+</body>
+</html>

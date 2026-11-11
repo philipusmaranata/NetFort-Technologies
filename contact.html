@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hubungi Kami & Jadwalkan Demo — NetFort Technologies</title>
+  <meta name="description" content="Jadwalkan demonstrasi langsung NetFort Zero Trust atau aktifkan uji coba 14 hari pada jaringan IoT perusahaan Anda.">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .clean-input {
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      width: 100%;
+      outline: none;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .clean-input:focus {
+      border-color: var(--sky-blue);
+      box-shadow: 0 0 0 3px rgba(5, 147, 198, 0.15);
+    }
+    .clean-label {
+      color: var(--text-main);
+      font-size: 0.875rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+  <script src="cyber.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar Presisi Tetap -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>NetFort <span class="highlight-sky">Technologies</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="features.html">Fitur & Teknologi</a></li>
+        <li><a href="pricing.html">Paket & Harga</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" class="active">Kontak & Demo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="portal.html" class="nav-signin-link">Masuk Portal</a>
+        <a href="pricing.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Mulai Uji Coba</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="section-header">
+      <div class="pill-badge pill-badge-pink">Konsultasi Arsitektur Zero Trust</div>
+      <h1>Jadwalkan Demo Otonom atau Uji Coba</h1>
+      <p>Diskusikan tantangan keamanan IoT Anda langsung bersama Network Security Architect NetFort. Dapatkan akses sandbox dan bukti konsep (PoC) tanpa komitmen.</p>
+    </div>
+
+    <!-- Kartu Formulir Permintaan Demo -->
+    <div class="bento-card" style="max-width: 680px; margin: 0 auto; padding: 2.75rem;">
+      <form id="contactForm" onsubmit="event.preventDefault(); submitDemoRequest();">
+        <div style="margin-bottom:1.25rem;">
+          <label class="clean-label">Nama Lengkap</label>
+          <input type="text" class="clean-input" placeholder="Contoh: Budi Rahman" required />
+        </div>
+
+        <div style="margin-bottom:1.25rem;">
+          <label class="clean-label">Email Perusahaan / Resmi</label>
+          <input type="email" class="clean-input" placeholder="budi@perusahaan.co.id" required />
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom:1.25rem;">
+          <div>
+            <label class="clean-label">Estimasi Armada IoT / Host</label>
+            <select id="fleetSizeSelect" class="clean-input">
+              <option value="1-5">1 – 5 Perangkat (Starter)</option>
+              <option value="6-25" selected>6 – 25 Perangkat (Professional)</option>
+              <option value="26-100">26 – 100 Perangkat</option>
+              <option value="100+">100+ Perangkat (Enterprise)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="clean-label">Jabatan di Perusahaan</label>
+            <select class="clean-input">
+              <option value="ciso">CISO / Direktur Keamanan</option>
+              <option value="it_manager" selected>IT Security Manager</option>
+              <option value="net_admin">Network Administrator</option>
+              <option value="other">Lainnya</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <label class="clean-label">Tantangan Utama Keamanan Saat Ini</label>
+          <textarea class="clean-input" rows="3" placeholder="Contoh: Kami memiliki banyak sensor dan CCTV pintar di kantor, khawatir adanya pergerakan lateral ransomware ke database utama..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1rem;">
+          Kirim Permintaan Demo & Akses Uji Coba 14 Hari →
+        </button>
+
+        <p style="font-size:0.8rem; color:var(--text-dim); text-align:center; margin-top:1rem;">
+          🔒 Kebijakan Privasi Ketat. Data Anda terlindungi dan tidak akan pernah dibagikan kepada pihak ketiga.
+        </p>
+      </form>
+
+      <!-- Notifikasi Berhasil -->
+      <div id="successPanel" style="display:none; background:rgba(5, 147, 198, 0.08); border:2px solid var(--sky-blue); border-radius:var(--radius-sm); padding:2rem; text-align:center;">
+        <div style="font-size:2.5rem; margin-bottom:0.5rem;">🛡️</div>
+        <h3 style="color:var(--sky-blue); margin-bottom:0.5rem; font-size:1.4rem;">Permintaan Demo Berhasil Diterima</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.7;">
+          Terima kasih telah menghubungi NetFort Technologies. Security Engineer kami akan menghubungi email resmi Anda dalam kurun waktu 2 jam kerja untuk menyiapkan sesi demo interaktif dan kredensial uji coba.
+        </p>
+      </div>
+    </div>
+
+    <!-- Info Kantor & Kontak -->
+    <div style="max-width: 680px; margin: 3.5rem auto 0; text-align: center;">
+      <h4 style="font-size: 1.05rem; color: var(--text-main); margin-bottom: 0.35rem;">NetFort Technologies HQ</h4>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.8;">
+        Sentra Inovasi Teknologi Keamanan Siber, Gedung Cyber 2 Lantai 18, Jakarta Selatan<br />
+        Email: <a href="mailto:kontak@netfort.id" style="color:var(--sky-blue); text-decoration:none; font-weight:700;">kontak@netfort.id</a> &bull; Dukungan: support@netfort.id
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>NetFort <span class="highlight-sky">Technologies</span></span>
+        </a>
+        <p>Inovator Zero Trust Architecture untuk mitigasi pergerakan lateral ancaman siber.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Fitur Inti</h5>
+        <ul>
+          <li><a href="features.html">Continuous Authentication</a></li>
+          <li><a href="features.html">IoT Micro-Segmentation</a></li>
+          <li><a href="features.html">AI Behavioral Profiling</a></li>
+          <li><a href="pricing.html">Paket Langganan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="about.html">Tentang NetFort</a></li>
+          <li><a href="contact.html">Kontak & Demo</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kepatuhan</h5>
+        <ul>
+          <li><a href="#">Privasi Data</a></li>
+          <li><a href="#">Standar ISO 27001</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NetFort Technologies. Hak Cipta Dilindungi Undang-Undang.</div>
+    </div>
+  </footer>
+
+  <script>
+    function submitDemoRequest() {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successPanel').style.display = 'block';
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan');
+    if (plan === 'starter') {
+      document.getElementById('fleetSizeSelect').value = '1-5';
+    } else if (plan === 'enterprise') {
+      document.getElementById('fleetSizeSelect').value = '100+';
+    }
+  </script>
+
+</body>
+</html>

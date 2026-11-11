@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pertanyaan Umum (FAQ) — NetFort Technologies</title>
+  <meta name="description" content="Jawaban seputar arsitektur Zero Trust, isolasi mikro-segmentasi IoT otonom, dan implementasi tanpa rombak topologi.">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .faq-accordion-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-accordion-item:hover {
+      border-color: var(--sky-blue);
+    }
+    .faq-question-btn {
+      width: 100%;
+      padding: 1.35rem 1.75rem;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-icon {
+      color: var(--sky-blue);
+      font-size: 1.4rem;
+      font-weight: 800;
+      transition: transform 0.2s ease;
+    }
+    .faq-accordion-item.open .faq-icon {
+      transform: rotate(45deg);
+      color: var(--hot-pink);
+    }
+    .faq-answer-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+      padding: 0 1.75rem;
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+    .faq-accordion-item.open .faq-answer-panel {
+      max-height: 450px;
+      padding-bottom: 1.5rem;
+    }
+  </style>
+  <script src="cyber.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar Presisi Tetap -->
+  <header class="site-nav">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>NetFort <span class="highlight-sky">Technologies</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="features.html">Fitur & Teknologi</a></li>
+        <li><a href="pricing.html">Paket & Harga</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact.html">Kontak & Demo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="portal.html" class="nav-signin-link">Masuk Portal</a>
+        <a href="pricing.html" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Mulai Uji Coba</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrapper">
+    <div class="section-header">
+      <div class="pill-badge">Pusat Informasi & Klarifikasi Teknis</div>
+      <h1>Pertanyaan yang Sering Diajukan</h1>
+      <p>Penjelasan komprehensif mengenai migrasi Zero Trust, cara kerja AI otonom, dan kompatibilitas pada infrastruktur jaringan Anda.</p>
+    </div>
+
+    <div style="max-width: 860px; margin: 0 auto;">
+      
+      <!-- FAQ 1 -->
+      <div class="faq-accordion-item open">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Mengapa sistem keamanan perimeter tradisional (seperti firewall biasa) dianggap sudah mati?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Firewall tradisional beroperasi dengan model usang: menganggap semua hal di luar jaringan sebagai berbahaya dan semua hal di dalam jaringan lokal (LAN) sebagai tepercaya. Faktanya, di era modern terdapat ratusan perangkat IoT (kamera, sensor, smart lock) yang terhubung ke jaringan internal tanpa update keamanan. Sekali penyerang berhasil membobol salah satu sensor IoT tersebut, firewall biasa tidak mampu mencegah peretas bergerak secara lateral menuju server database inti.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-accordion-item">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Bagaimana AI-Driven Behavioral Profiling mengenali ancaman tanpa campur tangan manusia?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Algoritma Machine Learning NetFort mempelajari pola komunikasi normal setiap perangkat secara pasif. Sebagai contoh, sensor suhu ruangan normalnya hanya mengirim data ke broker MQTT pada port 1883 setiap 30 detik. Jika sensor tersebut tiba-tiba mencoba membuka koneksi ke server database payroll internal melalui protokol TCP, AI langsung menandai deviasi ini sebagai anomali fatal dan <strong>memutus segmen tersebut dalam hitungan milidetik secara otonom</strong>.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-accordion-item">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Apakah perusahaan kami harus merombak kabel atau topologi jaringan fisik yang sudah ada?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Sama sekali tidak. Ini adalah Unique Selling Proposition (USP) utama NetFort: platform kami dapat memetakan, mengelompokkan, dan mengamankan seluruh ekosistem IoT Anda secara otomatis dalam <strong>kurang dari 48 jam</strong> tanpa mengharuskan Anda mengganti switch fisik, menarik kabel baru, atau mengubah arsitektur subnet yang sedang berjalan.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-accordion-item">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Bagaimana NetFort mengatasi masalah alert fatigue (kelelahan notifikasi) tim IT?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Banyak manajer keamanan siber (seperti persona Budi) mengeluhkan ratusan notifikasi palsu setiap hari. NetFort menyingkirkan alert fatigue dengan memvalidasi korelasi anomali menggunakan model AI berbasis intensi nyata sebelum membuat tiket peringatan. Selain itu, karena tindakan isolasi mikro-segmentasi dilakukan secara otonom oleh sistem, tim IT tidak perlu panik bangun di tengah malam hanya untuk memblokir port secara manual.
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-accordion-item">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Apakah Continuous Authentication akan memperlambat akses operasional karyawan?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Tidak. NetFort dirancang dengan overhead inspeksi paket di bawah 0.05 milidetik menggunakan probe kernel modern. Karyawan dan pengguna sah tidak akan merasakan perlambatan kecepatan saat membuka file kerja atau mengakses sistem ERP perusahaan.
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-accordion-item">
+        <button class="faq-question-btn" onclick="toggleFaq(this)">
+          <span>Apa saja yang termasuk dalam masa uji coba 14 hari gratis?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer-panel">
+          Uji coba 14 hari memberikan akses penuh ke Paket Professional (hingga 25 perangkat IoT, pemetaan mikro-segmentasi otomatis, dan isolasi AI otonom). Tanpa komitmen kartu kredit.
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:3.5rem;">
+      <p style="color:var(--text-muted); margin-bottom:1rem;">Masih memiliki pertanyaan teknis seputar arsitektur Zero Trust?</p>
+      <a href="contact.html" class="btn btn-outline">Konsultasi dengan Network Architect Kami →</a>
+    </div>
+  </main>
+
+  <!-- Footer Resmi -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span>NetFort <span class="highlight-sky">Technologies</span></span>
+        </a>
+        <p>Inovator Zero Trust Architecture untuk mitigasi pergerakan lateral ancaman siber.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Fitur Inti</h5>
+        <ul>
+          <li><a href="features.html">Continuous Authentication</a></li>
+          <li><a href="features.html">IoT Micro-Segmentation</a></li>
+          <li><a href="features.html">AI Behavioral Profiling</a></li>
+          <li><a href="pricing.html">Paket Langganan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="about.html">Tentang NetFort</a></li>
+          <li><a href="contact.html">Kontak & Demo</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kepatuhan</h5>
+        <ul>
+          <li><a href="#">Privasi Data</a></li>
+          <li><a href="#">Standar ISO 27001</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 NetFort Technologies. Hak Cipta Dilindungi Undang-Undang.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
