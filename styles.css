@@ -1335,3 +1335,7 @@ img, svg, video, canvas, iframe { max-width: 100%; }
   .doc-card:first-child .doc-thumb img{min-height:0;height:auto}
   .doc-thumb img{height:220px}
 }
+.video-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);overflow:hidden;max-width:1000px;margin:0 auto}
+.video-card video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.video-meta{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 1.25rem}
+.video-meta .btn{padding:.55rem 1.1rem;font-size:.85rem}
