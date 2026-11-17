@@ -1,3 +1,28 @@
+/* Mobile navigation: hamburger toggle for .nav-links (hidden by CSS below 960px) */
+(function () {
+  var nav = document.querySelector('.site-nav'), links = nav && nav.querySelector('.nav-links');
+  if (!links) return;
+  // Copy header actions (portal / trial) into the menu so they stay reachable on phones
+  nav.querySelectorAll('.nav-actions a').forEach(function (a) {
+    var li = document.createElement('li'); li.className = 'nav-extra';
+    var c = a.cloneNode(true); c.removeAttribute('style'); li.appendChild(c); links.appendChild(li);
+  });
+  var btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'nav-toggle';
+  btn.setAttribute('aria-label', 'Buka menu'); btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = '<span></span><span></span><span></span>';
+  nav.querySelector('.nav-container').appendChild(btn);
+  function set(open) {
+    nav.classList.toggle('nav-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+  }
+  btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
+  links.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  addEventListener('resize', function () { if (innerWidth > 960) set(false); });
+})();
+
 /* NetFort cyber background: drifting network nodes that link up and react to the cursor */
 (function () {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;

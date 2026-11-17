@@ -97,7 +97,7 @@
             <span class="sla-chip" id="pricingSlaBadge">SLA 99.9%</span>
           </div>
           <div class="price-value-container" id="pricingPriceDisplay">
-            Rp 1.200.000<span class="price-period">/bln</span>
+            Rp&nbsp;1.200.000<span class="price-period">/bln</span>
           </div>
           <div class="price-label-desc" id="pricingTierTag">
             Paket Professional (Pilihan Utama)
@@ -145,7 +145,7 @@
 
           <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:1.5rem; margin-bottom:1.5rem;">
             <div id="cardStarterPrice" style="font-size:2.5rem; font-weight:900; font-family:var(--font-mono); color:var(--text-main);">
-              Rp 450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
+              Rp&nbsp;450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
             </div>
             <div style="font-size:0.85rem; color:var(--sky-blue); font-weight:700; margin-top:0.25rem;">Hingga 5 Perangkat IoT Terpantau</div>
           </div>
@@ -174,7 +174,7 @@
       <!-- Professional Card (Step 1 - Highlight) -->
       <div class="bento-card card-highlighted" id="cardTier1" style="display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;" onclick="pilihStepPricing(1)">
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center;">
             <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">Professional</div>
             <span class="pill-badge pill-badge-pink" style="margin:0;">REKOMENDASI CISO</span>
           </div>
@@ -182,7 +182,7 @@
 
           <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:1.5rem; margin-bottom:1.5rem;">
             <div id="cardProPrice" style="font-size:2.5rem; font-weight:900; font-family:var(--font-mono); color:var(--hot-pink);">
-              Rp 1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
+              Rp&nbsp;1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>
             </div>
             <div style="font-size:0.85rem; color:var(--hot-pink); font-weight:700; margin-top:0.25rem;">Hingga 25 Perangkat IoT Terpantau</div>
           </div>
@@ -435,8 +435,8 @@
         cardPro.innerHTML = 'Rp 960.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
       } else {
         mode.textContent = "Bulanan";
-        cardStarter.innerHTML = 'Rp 450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
-        cardPro.innerHTML = 'Rp 1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+        cardStarter.innerHTML = 'Rp&nbsp;450.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
+        cardPro.innerHTML = 'Rp&nbsp;1.200.000<span style="font-size:0.9rem; color:var(--text-dim); font-weight:400;">/bln</span>';
       }
       onStepPricingBerubah(pStepAktif);
     }
