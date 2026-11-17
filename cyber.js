@@ -1,4 +1,4 @@
-/* Mobile navigation: hamburger toggle for .nav-links (hidden by CSS below 960px) */
+/* Mobile navigation: hamburger toggle for .nav-links (hidden by CSS below 1280px) */
 (function () {
   var nav = document.querySelector('.site-nav'), links = nav && nav.querySelector('.nav-links');
   if (!links) return;
@@ -20,7 +20,7 @@
   btn.addEventListener('click', function () { set(!nav.classList.contains('nav-open')); });
   links.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-  addEventListener('resize', function () { if (innerWidth > 960) set(false); });
+  addEventListener('resize', function () { if (innerWidth > 1280) set(false); });
 })();
 
 /* NetFort cyber background: drifting network nodes that link up and react to the cursor */
